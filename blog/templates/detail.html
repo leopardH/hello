@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>detail</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/blog/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+
+	<link href="/static/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .catbox{
+      	margin-top: 10px;
+      	height: 600px;
+      	text-align: center;
+      }
+      .galary {
+    width: 720px;
+    height: 540px;
+    transition: 0.4s;
+
+}
+	.galary:hover {
+    margin-top: 40px;
+    box-shadow: 0 3px 15px 3px rgba(51, 51, 51, 0.5);
+}
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+        <link href="{% static 'blog.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <!-- <link href="blog.css" rel="stylesheet"> -->
+</head>
+<body>
+	<div class="container">
+		{% include 'header.html' %}	
+		<br>
+
+   	
+    <article class="blog-post">
+		        <h2 class="blog-post-title" style="font-size: 40px;text-align: center;">{{ post.title }}</h2>
+		        <p class="blog-post-meta" style="text-align: right;font-family:'STKaiti';">{{ post.created }} by <a href="#">{{ post.author }}</a></p>		        
+	        	<div class="catbox">
+				<img src="{%static 'miao.jpg' %}" class="galary">	
+				</div>
+
+		        <p style="font-family:'STFangsong';font-size: 20px;text-align: center;">{{ post.body }}</p>	
+			        
+</body>
+{% include 'footer.html' %}	
+</html>
+

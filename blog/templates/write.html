@@ -1,0 +1,94 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/blog/">
+	<link href="/static/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">	
+	<style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+	<link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{% static 'blog.css' %}" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+
+<br>
+<!-- 写文章表单 -->
+<div class="container">
+{% include 'header.html' %}		
+    <div class="row">
+        <div class="col-12">
+            <br>
+            <!-- 提交文章的表单 -->
+            <form method="post" action=".">
+                <!-- Django中需要POST数据的地方都必须有csrf_token -->
+                {% csrf_token %}
+                <!-- 文章标题 -->
+                <div class="input-group">
+                    <!-- 标签 -->
+                    <label for="title" class="col-sm-1 control-label">文章标题</label>
+                    <!-- 文本框 -->
+                    <div class="col-sm-3">
+                    <input type="text" class="form-control" id="title" name="title">
+                	</div>
+                </div>
+                <br>
+              	<div class="form-group" >
+					<label for="name" class="col-sm-1 control-label">文章分类</label>
+					<div class="col-sm-2">
+					<select class="form-control" name="category">
+					  <option value="Games">Games</option>
+					  <option value="Fun">Fun</option>
+					  <option value="Novels">Novels</option>
+					  <option value="Learn">Learn</option>
+					  <option value="Code">Code</option>
+					  <option value="Business">Business</option>
+					  <option value="Politics">Politics</option>
+					  <option value="Essays">Essays</option>
+					</select>
+					</div>
+				</div>
+ 				
+				<br>
+				<br>
+                <!-- 文章正文 -->
+                <div class="form-group">
+                    <label for="body" class="col-sm-1 control-label">文章正文</label>
+                    <!-- 文本区域 -->
+                    <div class="col-sm-8">
+                    <textarea type="text" class="form-control" id="body" name="body" rows="12"></textarea>
+                    <br>
+                	</div>
+                </div>
+
+                <!-- 提交按钮 -->
+              <div class="form-group">
+				<div class="col-sm-offset-1 col-sm-10">
+				<button type="submit" class="btn btn-primary">完成</button>
+		</div>
+	</div>
+            </form>
+            
+        </div>
+    </div>
+</div>
+<br>
+{% include 'footer.html' %}
+</body>
+</html>

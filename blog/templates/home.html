@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+{% load mark %}
+{% load static %}
+
+
+{% block content %}
+{% for post in post_list %}
+ <article class="blog-post">
+        <h2 class="blog-post-title" style="font-size: 28px;">{{ post.title }}</h2>
+        <p class="blog-post-meta">{{ post.created }} by <a href="#">{{ post.author }}</a></p>
+        <hr>
+        <p>{{ post.body |custom_markdown |slice:'350'  }}{% if value|length > 350 %}{% endif %}......</p>
+        <br>
+        <br>
+<!-- 	<section class="post">
+		<header class="post-header">
+			<h2 class="post-title">{{ post.title }}</h2>
+			<p class="post-meta">
+				Time: <a href="#" class="post-author">{{ post.date_time }}</a>
+			</p>
+		</header>
+		<div class="post-description">
+			<p>
+				{{ post.content }}
+			</p>
+		</div>
+	</section> -->
+{% endfor %}
+
+{% endblock %}
